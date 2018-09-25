@@ -16,12 +16,9 @@ moment.tz.setDefault('Europe/Amsterdam');
 // Search near the Apple Store Amsterdam by default
 const defaultPostcode = '1017 PS';
 
-// By default, look for all 4 iPhone X configurations
+// By default, look for 44mm space gray apple watch 4
 const defaultProducts = [
-  'MQAC2ZD/A', // iPhone X 64 GB space gray
-  'MQAD2ZD/A', // iPhone X 64 GB silver
-  'MQAF2ZD/A', // iPhone X 256 GB space gray
-  'MQAG2ZD/A', // iPhone X 256 GB silver
+  'MU6D2NF/A', // Apple Watch 4 44mm space gray rubber black band
 ];
 
 const products = process.env.PRODUCTS ? process.env.PRODUCTS.split(',') : defaultProducts;
@@ -38,7 +35,7 @@ pickupAvailabilityEmitter.on('change', (product, store, oldStatus, newStatus) =>
   } else {
     log('INIT', `${newStatus} (${product} @ ${store})`);
   }
-  
+
   if (newStatus != PickupAvailabilityEmitter.AVAILABLE
       && newStatus != PickupAvailabilityEmitter.UNAVAILABLE
       && newStatus != PickupAvailabilityEmitter.INELIGIBLE) {
